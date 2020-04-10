@@ -1,7 +1,5 @@
 package cn.b1ue.redis.unserialize;
 
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.parser.ParserConfig;
 import redis.clients.jedis.Jedis;
 
 import java.io.*;
@@ -28,7 +26,6 @@ public class JDK {
         //////////////////////////////////////
 
         Jedis jedis = new Jedis("192.168.91.147", 6379);
-        jedis.flushAll();
         jedis.set("x".getBytes(),bytes);
 
         byte[] badbyte = jedis.get("x".getBytes());

